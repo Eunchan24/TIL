@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>shkim Django Applications</h2>
+    <ul>
+        {% for appname in app_list %}
+            {% with appname|add:":"|add:"index" as urlvar %}
+            <!-- polls:index -->
+                <li><a href="{% url urlvar %}">{{ appname }}</a></li>
+            {% endwith %}
+        {% endfor %}
+    </ul>
+{% endblock content %}
